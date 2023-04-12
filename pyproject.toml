@@ -1,9 +1,10 @@
 [tool.poetry]
 name = "mollview"
 version = "0.1.0"
-description = "Plot HEALPix maps from the commandline."
+description = "mollview is a command line tool for plotting HEALPix maps from fits files."
 authors = ["Metin San <metinisan@gmail.com>"]
-license = "GNU"
+license = "GNU General Public License v3.0"
+readme = "README.md"
 
 [tool.poetry.scripts]
 mollview = "mollview:app"
