@@ -5,25 +5,25 @@ import healpy as hp
 import matplotlib.pyplot as plt
 import typer
 
-app = typer.Typer()
+app = typer.Typer(add_completion=False)
 
 
 @app.command()
 def plot_map(
     filename: Path = typer.Argument(..., help="Name of HEALPIX fits file"),
     field: int = typer.Option(0, help="Column to read. 0 is I, 1 is Q, and 2 is U"),
-    norm: str = typer.Option(None, help="Normalization method"),
     min: float = typer.Option(None, help="Minimum value"),
     max: float = typer.Option(None, help="Maximum value"),
-    coord: Tuple[str, str] = typer.Option((None, None), help="Coordinate system"),
-    unit: str = typer.Option(None, help="Unit"),
-    nest: bool = typer.Option(False, help="Use NESTED pixel ordering"),
-    title: str = typer.Option("", help="Title"),
-    xsize: int = typer.Option(800, help="Size of the figure"),
-    notext: bool = typer.Option(False, help="Do not show text"),
+    norm: str = typer.Option(None, help="Normalization method"),
     cmap: str = typer.Option(None, help="Color map"),
-    cbar: bool = typer.Option(True, help="Show color bar"),
+    unit: str = typer.Option(None, help="Unit"),
+    title: str = typer.Option("", help="Title"),
     save: bool = typer.Option(False, help="Save the figure"),
+    coord: Tuple[str, str] = typer.Option((None, None), help="Coordinate system"),
+    cbar: bool = typer.Option(True, help="Show color bar"),
+    notext: bool = typer.Option(False, help="Do not show text"),
+    xsize: int = typer.Option(800, help="Size of the figure"),
+    nest: bool = typer.Option(False, help="Use NESTED pixel ordering"),
     remove_dip: bool = typer.Option(False, help="Remove the dipole"),
     gal_cut: float = typer.Option(
         None,
