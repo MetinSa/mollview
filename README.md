@@ -3,17 +3,24 @@
 ---
 
 
-`mollview` is a command line tool for plotting HEALPix maps from fits files. `mollview` wraps `healpy`'s `read_map` and `mollview` functions. Most `mollview` keywords are supported (see [the documentation for mollview](https://healpy.readthedocs.io/en/latest/generated/healpy.visufunc.mollview.html) for more information).
+mollview is a command line tool for plotting HEALPix maps from fits files. 
+
+mollview wraps [healpy's](https://github.com/healpy/healpy) `hp.read_map` to read the file and `hp.mollview` to plot. Most `mollview` keywords are supported (see [the documentation for mollview](https://healpy.readthedocs.io/en/latest/generated/healpy.visufunc.mollview.html) for more information).
 
 # Installation
-`pip install mollview`.
+`pip install mollview`
 
 # Examples
+The tool is used as following:
 ```bash
 >>> mollview my_map.fits
-
+```
+or alternatively:
+```bash
 >>> python -m mollview my_map.fits
 ```
+
+For a list of all available features, use the `--help` flag:
 ```bash
 >>> mollview --help                           
 Usage: mollview [OPTIONS] FILENAME
