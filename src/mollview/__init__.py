@@ -32,6 +32,12 @@ def plot_map(
     remove_mono: bool = typer.Option(False, help="Remove the monopole"),
     badcolor: str = typer.Option("gray", help="Color of bad pixels"),
 ) -> None:
+    """Plots a HEALPix map from the commandline given a fits file."""
+
+    if not filename.exists():
+        msg = f"{filename} was not found"
+        raise FileNotFoundError(msg)
+
     m = hp.read_map(filename, field=field, nest=nest)
     hp.mollview(
         m,
